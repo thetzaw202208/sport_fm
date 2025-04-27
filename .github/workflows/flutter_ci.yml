@@ -1,32 +1,33 @@
-# .github/workflows/flutter-ci.yml
-name: Flutter CI
+name: ci
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
+  ci_checks:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.29.3' # Use your Flutter version
-      - run: flutter pub get
-      #- run: flutter analyze
-      #- run: flutter test
-      #- run: flutter build apk --release # or build ios if needed
-      # Use the setup-shorebird action to configure Shorebird
-      - name: 🐦 Setup Shorebird
-        uses: shorebirdtech/setup-shorebird@v1
-        with:
-          cache: true
-      # Optionally cache your Shorebird installation
-      # Now we're able to use Shorebird CLI in our workflow
-      - name: 🚀 Use Shorebird
-        run: shorebird --version
-      - run: shorebird release android --artifact apk
 
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v4
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+
+      - name: 📦 Install Dependencies
+        run: flutter pub get
+
+      - name: ✨ Format
+        run: dart format --set-exit-if-changed .
+
+      - name: 🔍 Analyze
+        run: dart analyze --fatal-warnings .
+
+      - name: 🧪 Test
+        run: flutter test --coverage

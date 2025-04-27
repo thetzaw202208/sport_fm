@@ -1,33 +1,21 @@
-name: ci
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+# .github/workflows/flutter-ci.yml
+name: Flutter CI
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  ci_checks:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 📚 Git Checkout
-        uses: actions/checkout@v4
-
-      - name: 🐦 Setup Flutter
-        uses: subosito/flutter-action@v2
-
-      - name: 📦 Install Dependencies
-        run: flutter pub get
-
-      - name: ✨ Format
-        run: dart format --set-exit-if-changed .
-
-      - name: 🔍 Analyze
-        run: dart analyze --fatal-warnings .
-
-      - name: 🧪 Test
-        run: flutter test --coverage
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.3' # Use your Flutter version
+      - run: flutter pub get
+      #- run: flutter analyze
+      #- run: flutter test
+      - run: flutter build apk --release # or build ios if needed

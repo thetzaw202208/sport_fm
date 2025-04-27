@@ -6,16 +6,58 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    tags:
+      - 'v1.0.0'  # Trigger on version tags (e.g., v1.0.0)
+
+env:
+  FLUTTER_VERSION: '3.29.3'  # Use your Flutter version
+  SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}  # Store your Shorebird token in GitHub secrets
 
 jobs:
-  build:
+  shorebird-update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.29.3' # Use your Flutter version
-      - run: flutter pub get
-      #- run: flutter analyze
-      #- run: flutter test
-      - run: flutter build apk --release # or build ios if needed
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: 'stable'
+
+      - name: Install Shorebird CLI
+        run: |
+          dart pub global activate shorebird
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+
+      - name: Authenticate Shorebird
+        run: shorebird login --token $SHOREBIRD_TOKEN
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Check Shorebird initialization
+        run: |
+          if [ ! -f "shorebird.yaml" ]; then
+            echo "Initializing Shorebird..."
+            shorebird init --force
+          else
+            echo "Shorebird already initialized"
+          fi
+
+      - name: Build release APK
+        run: flutter build apk --release
+
+      - name: Create Shorebird release
+        run: shorebird release android --artifact=build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Create Shorebird patch (for non-tag pushes)
+        if: startsWith(github.ref, 'refs/tags/v') == false
+        run: shorebird patch android --release-version $(shorebird releases list | grep -m 1 -oP '\d+\.\d+\.\d+\+\d+')
+
+      - name: Upload APK artifact (for manual download if needed)
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk

@@ -43,8 +43,8 @@ class ApiRepo {
           url: "${ApiConstant.baseUrl}${ApiConstant.loginEndPoint}",
           data: {'phone': phoneNumber, 'password': password});
       final loginResponseMap = response.data;
-      print("Here is response data for login");
-      print(response.data['status']);
+      //print("Here is response data for login");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final loginResponse = LoginResponseVo.fromJson(loginResponseMap);
@@ -67,8 +67,8 @@ class ApiRepo {
             'transaction_no': transNumber
           });
       final depositResponseMap = response.data;
-      print("Here is response data for deposit");
-      print(response.data['status']);
+      //print("Here is response data for deposit");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final depositResponse = DepositResponseVo.fromJson(depositResponseMap);
@@ -90,8 +90,8 @@ class ApiRepo {
             'bank_type': bankType
           });
       final depositResponseMap = response.data;
-      print("Here is response data for withdraw");
-      print(response.data['status']);
+      //print("Here is response data for withdraw");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final depositResponse = DepositResponseVo.fromJson(depositResponseMap);
@@ -108,8 +108,8 @@ class ApiRepo {
         queryParameters: {'bank_type': bankType},
       );
       final getBankAccResponseMap = response.data;
-      print("Here is response data for getBankAcc");
-      print(response.data['status']);
+      //print("Here is response data for getBankAcc");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final getBankAccResponse =
@@ -126,8 +126,8 @@ class ApiRepo {
         queryParameters: {'paginate': paginate},
       );
       final transactionResponseMap = response.data;
-      print("Here is response data for transaction");
-      print(response.data['status']);
+      //print("Here is response data for transaction");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final transactionResponse =
@@ -143,8 +143,8 @@ class ApiRepo {
         url: "${ApiConstant.baseUrl}${ApiConstant.ruleEndPoint}",
       );
       final ruleResponseMap = response.data;
-      print("Here is response data for rule");
-      print(response.data['status']);
+      //print("Here is response data for rule");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final ruleResponse = RuleResponseVo.fromJson(ruleResponseMap);
@@ -160,7 +160,7 @@ class ApiRepo {
         url: "${ApiConstant.twoURL}${ApiConstant.liveEndPoint}",
       );
       final liveResponseMap = response.data;
-      print("Here is response data for live");
+      //print("Here is response data for live");
 
       // Convert the Map to LoginResponseVo
       final liveResponse = LiveResultApiResponse.fromJson(liveResponseMap);
@@ -176,8 +176,8 @@ class ApiRepo {
         url: "${ApiConstant.baseUrl}${ApiConstant.profileEndPoint}",
       );
       final profileResponseMap = response.data;
-      print("Here is response data for profile");
-      print(response.data['status']);
+      //print("Here is response data for profile");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final profileResponse = ProfileResponseVo.fromJson(profileResponseMap);
@@ -192,8 +192,8 @@ class ApiRepo {
         url: "${ApiConstant.baseUrl}${ApiConstant.twoDNumberEndPoint}",
       );
       final twoDResponseMap = response.data;
-      print("Here is response data for profile");
-      print(response.data['status']);
+      //print("Here is response data for profile");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final twoResponse = TwoDNumbersVo.fromJson(twoDResponseMap);
@@ -208,8 +208,8 @@ class ApiRepo {
         url: "${ApiConstant.baseUrl}${ApiConstant.threeDNumberEndPoint}",
       );
       final twoDResponseMap = response.data;
-      print("Here is response data for profile");
-      print(response.data['status']);
+      //print("Here is response data for profile");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final twoResponse = TwoDNumbersVo.fromJson(twoDResponseMap);
@@ -225,8 +225,8 @@ class ApiRepo {
         url: "${ApiConstant.baseUrl}${ApiConstant.logoutEndPoint}",
       );
       final logoutResponseMap = response.data;
-      print("Here is response data for logout");
-      print(response.data['status']);
+      //print("Here is response data for logout");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final logoutResponse = LogoutResponseVo.fromJson(logoutResponseMap);
@@ -257,8 +257,8 @@ class ApiRepo {
           url: "${ApiConstant.baseUrl}${ApiConstant.twoDBetEndPoint}",
           data: {'bets':betList});
       final betResponseMap = response.data;
-      print("Here is response data for betConfirm");
-      print(response.data['status']);
+      //print("Here is response data for betConfirm");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final betConfirmResp = BetConfirmVo.fromJson(betResponseMap);
@@ -273,8 +273,8 @@ class ApiRepo {
           url: "${ApiConstant.baseUrl}${ApiConstant.threeDBetEndPoint}",
           data: {'bets':betList});
       final betResponseMap = response.data;
-      print("Here is response data for betConfirm");
-      print(response.data['status']);
+      //print("Here is response data for betConfirm");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final betConfirmResp = BetConfirmVo.fromJson(betResponseMap);
@@ -290,8 +290,8 @@ class ApiRepo {
           url: "${ApiConstant.baseUrl}${ApiConstant.twoDBetHistEndPoint}",
           );
       final twoHistoryMap = response.data;
-      print("Here is response data for two bet His");
-      print(response.data['status']);
+      //print("Here is response data for two bet His");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final twoDHisResp = TwoDHistoryVo.fromJson(twoHistoryMap);
@@ -306,8 +306,8 @@ class ApiRepo {
         url: "${ApiConstant.baseUrl}${ApiConstant.threeDBetHistEndPoint}",
       );
       final threeHistoryMap = response.data;
-      print("Here is response data for two bet His");
-      print(response.data['status']);
+      //print("Here is response data for two bet His");
+      //print(response.data['status']);
 
       // Convert the Map to LoginResponseVo
       final threeDHisResp = ThreeDHistoryVo.fromJson(threeHistoryMap);

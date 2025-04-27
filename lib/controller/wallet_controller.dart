@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:sport_fm/response_model/deposit_response_vo.dart';
 import 'package:sport_fm/response_model/get_bank_acc_response_vo.dart';
 import 'package:sport_fm/services/local_storage.dart';
-import 'package:sport_fm/views/screens/bottom_nav_menu.dart';
 import 'package:sport_fm/views/screens/transaction/success_screen.dart';
 
 import '../services/api_repo.dart';

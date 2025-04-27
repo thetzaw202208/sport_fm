@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sport_fm/views/screens/betting/three_d_detail_screen.dart';
 import 'package:sport_fm/views/screens/betting/three_d_history_screen.dart';
-import 'package:sport_fm/views/screens/betting/two_d_details_screen.dart';
 import '../../../controller/setting_controller.dart';
 import '../../../utils/color_const.dart';
 import '../../../utils/dimen_const.dart';

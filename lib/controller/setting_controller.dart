@@ -1,12 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sport_fm/controller/bottom_nav_controller.dart';
 import 'package:sport_fm/response_model/logout_response_vo.dart';
 import 'package:sport_fm/services/local_storage.dart';
 import 'package:sport_fm/views/screens/login/login_screen.dart';
-import 'package:sport_fm/views/widgets/custom_text.dart';
-
 import '../response_model/profile_response_vo.dart';
 import '../services/api_repo.dart';
 import '../utils/constants.dart';
@@ -27,7 +24,7 @@ class SettingController extends GetxController {
   RxString avatar = 'a1'.obs;
   @override
   void onInit() {
-    print('setting controller is not work');
+    //print('setting controller is not work');
     getProfileData();
     getAvatar();
 
@@ -42,7 +39,7 @@ class SettingController extends GetxController {
   }
   getAvatar() {
     // _timer=Timer.periodic(Duration(seconds: 1), (va){
-    //   print('Timer is work');
+    //   //print('Timer is work');
     avatar.value = box.read('avatar') ?? 'a1';
     //});
   }
@@ -86,7 +83,7 @@ class SettingController extends GetxController {
   Future<void> getProfileData() async {
     isLoading.value = true;
     try {
-      print('AccessKey ${box.read('accessKey')}');
+      //print('AccessKey ${box.read('accessKey')}');
       result = await ApiRepo().getProfileData();
       if (result.status == 200) {
         name.value = result.data?.name ?? "";

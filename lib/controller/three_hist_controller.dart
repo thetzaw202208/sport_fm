@@ -6,12 +6,9 @@ import 'package:sport_fm/services/local_storage.dart';
 import '../services/api_repo.dart';
 import '../utils/color_const.dart';
 import '../utils/constants.dart';
-import '../views/screens/login/login_screen.dart';
-import '../views/widgets/custom_text.dart';
 import 'get_new_token_controller.dart';
 
 class ThreeDHisController extends GetxController{
-  //TwoDNumbersVo twoDNumbers=TwoDNumbersVo();
   ThreeDHistoryVo twoDHistoryVo=ThreeDHistoryVo();
   RxBool isLoading=false.obs;
   LocalStorage box=LocalStorage();
@@ -24,7 +21,7 @@ class ThreeDHisController extends GetxController{
   void onInit() {
     //getTwoDData();
     getThreeDHisData();
-    //print('get two d data call');
+    ////print('get two d data call');
     super.onInit();
   }
 
@@ -32,11 +29,11 @@ class ThreeDHisController extends GetxController{
   Future<void> getThreeDHisData() async {
     isLoading.value = true;
     try {
-      //print('get three d data start');
+      ////print('get three d data start');
       twoDHistoryVo = await ApiRepo().getThreeDBetHistory();
       if (twoDHistoryVo.status == 200) {
         hList.value=twoDHistoryVo.resData?.detailData??[];
-        print('get three d data success');
+        //print('get three d data success');
         isLoading.value = false;
         //Get.snackbar("three d Success", "Your login process is success");
       }  else if (twoDHistoryVo.status == 401) {

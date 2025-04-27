@@ -14,7 +14,7 @@ class GetNewTokenController extends GetxController{
   RxBool isLoading = false.obs;
 
   Future<void> getNewToken() async {
-    print('Request new token work');
+    //print('Request new token work');
     try {
       result = await ApiRepo().getRefreshToken();
       if (result.status == 200) {

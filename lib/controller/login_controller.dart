@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:sport_fm/response_model/login_response_vo.dart';
 import 'package:sport_fm/services/api_repo.dart';
 import 'package:sport_fm/services/local_storage.dart';
 import 'package:sport_fm/views/screens/bottom_nav_menu.dart';
 
 import '../utils/constants.dart';
-import '../views/screens/login/login_screen.dart';
-import '../views/widgets/custom_text.dart';
 
 class LoginController extends GetxController{
 TextEditingController phoneController = TextEditingController();
@@ -63,8 +60,8 @@ void onChangePwdTextField(String text){
         box.write('isLogin', true);
         box.write('accessKey', result.accessToken);
         box.write('refreshKey', result.refreshToken);
-        print('Here is accessKey ${box.read('accessKey')}');
-        print('Here is accessKey ${result.accessToken}');
+        //print('Here is accessKey ${box.read('accessKey')}');
+        //print('Here is accessKey ${result.accessToken}');
         Future.delayed(Duration(seconds: 2),(){
           isLoginLoading.value=false;
           Get.offAll(BottomNavMenu());

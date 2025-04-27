@@ -10,7 +10,7 @@ class SplashController extends GetxController {
     LocalStorage box=LocalStorage();
 
    var isLogin=box.read('isLogin')??false;
-   print('ZZZZZ ${box.read('isLogin')}');
+   //print('ZZZZZ ${box.read('isLogin')}');
     if(isLogin){
       Future.delayed(const Duration(seconds: 2), () {
         Get.offAll(() => const BottomNavMenu());

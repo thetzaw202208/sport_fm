@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:sport_fm/controller/betting_controller.dart';
 import 'package:sport_fm/controller/three_d_controller.dart';
 import 'package:sport_fm/utils/dimen_const.dart';
 

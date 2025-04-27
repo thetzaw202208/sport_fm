@@ -5,8 +5,6 @@ import 'package:sport_fm/services/local_storage.dart';
 import '../services/api_repo.dart';
 import '../utils/color_const.dart';
 import '../utils/constants.dart';
-import '../views/screens/login/login_screen.dart';
-import '../views/widgets/custom_text.dart';
 import 'get_new_token_controller.dart';
 
 class TransactionHistoryController extends GetxController{

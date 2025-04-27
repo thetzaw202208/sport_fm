@@ -6,7 +6,6 @@ import 'package:sport_fm/services/local_storage.dart';
 import '../services/api_repo.dart';
 import '../utils/color_const.dart';
 import '../utils/constants.dart';
-import '../views/screens/login/login_screen.dart';
 import '../views/widgets/custom_text.dart';
 import 'get_new_token_controller.dart';
 
@@ -84,7 +83,7 @@ class TwoDHisController extends GetxController{
       twoDHistoryVo = await ApiRepo().getTwoDBetHistory();
       if (twoDHistoryVo.status == 200) {
         hList.value=twoDHistoryVo.resData?.detailData??[];
-        print('get three d data success');
+        //print('get three d data success');
         isLoading.value = false;
        // Get.snackbar("three d Success", "Your login process is success");
       }  else if (twoDHistoryVo.status == 401) {

@@ -5,15 +5,12 @@ import 'package:sport_fm/response_model/betting_confirm_response_vo.dart';
 import 'package:sport_fm/response_model/two_d_history_vo.dart';
 import 'package:sport_fm/response_model/two_d_numbers_vo.dart';
 import 'package:sport_fm/services/local_storage.dart';
-import 'package:sport_fm/views/screens/betting/two_d_screen.dart';
 import 'package:sport_fm/views/screens/bottom_nav_menu.dart';
 
 import '../models/bet_request_vo.dart';
 import '../services/api_repo.dart';
 import '../utils/color_const.dart';
 import '../utils/constants.dart';
-import '../views/screens/login/login_screen.dart';
-import '../views/widgets/custom_text.dart';
 
 class BettingController extends GetxController{
   TwoDNumbersVo twoDNumbers=TwoDNumbersVo();
@@ -32,7 +29,7 @@ class BettingController extends GetxController{
   void onInit() {
     getTwoDData();
     //getTwoDHisData();
-   //print('get two d data call');
+   ////print('get two d data call');
     super.onInit();
   }
   selectNumbers(int index) {
@@ -49,7 +46,7 @@ class BettingController extends GetxController{
           number:  int.parse(twoDList[index].betNumber??'11'),
           amount:int.parse(amount)
       ));
-      print("Number list ${betNumberList[0].number} and length ${betNumberList.length}");
+      //print("Number list ${betNumberList[0].number} and length ${betNumberList.length}");
       Get.snackbar("Success", "Number added Successfully");
       amountText.text="";
 
@@ -64,11 +61,11 @@ class BettingController extends GetxController{
   Future<void> twoDBetConfirm(List<BetRequestVo> betList) async {
     isLoading.value = true;
     try {
-      //print('get three d data start');
+      ////print('get three d data start');
       twoDBetConfirmResult = await ApiRepo().twoDBettingConfirm(betList);
       if (twoDBetConfirmResult.status == 200) {
         betClear();
-        print('get three d data success');
+        //print('get three d data success');
         isLoading.value = false;
         Get.offAll(BottomNavMenu());
         //Get.snackbar("Success", twoDBetConfirmResult.message??"");
@@ -102,11 +99,11 @@ class BettingController extends GetxController{
   Future<void> getTwoDData() async {
     isLoading.value = true;
     try {
-      print('get two d data start');
+      //print('get two d data start');
       twoDNumbers = await ApiRepo().getTwoDNumbers();
       if (twoDNumbers.success == 200) {
         twoDList.value=twoDNumbers.data??<Data>[];
-        print('get two d data success');
+        //print('get two d data success');
         isLoading.value = false;
        // Get.snackbar("Profile Success", "Your login process is success");
       } else if (twoDNumbers.success == 401) {
@@ -152,11 +149,11 @@ class BettingController extends GetxController{
   Future<void> getTwoDHisData() async {
     isLoading.value = true;
     try {
-      //print('get three d data start');
+      ////print('get three d data start');
       twoDHistoryVo = await ApiRepo().getTwoDBetHistory();
       if (twoDHistoryVo.status == 200) {
         hList.value=twoDHistoryVo.resData?.detailData??[];
-        print('get three d data success');
+        //print('get three d data success');
         isLoading.value = false;
         //Get.snackbar("three d Success", "Your login process is success");
       } else if (twoDHistoryVo.status == 401) {

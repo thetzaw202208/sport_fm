@@ -17,7 +17,7 @@ class LiveController extends GetxController {
   void onInit() {
 
     if (!shouldCallApi()) {
-      print('API call skipped due to weekend or holiday.');
+      //print('API call skipped due to weekend or holiday.');
       return; // Skip the API call
     }else{
       _timer=Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -54,12 +54,12 @@ class LiveController extends GetxController {
      resultData=liveResultData.result;
      holidayData=liveResultData.holiday;
 
-      print('work here zzzzzzzzzzzz ${holidayData?.status}');
+      //print('work here zzzzzzzzzzzz ${holidayData?.status}');
      // if(resultData?.isNotEmpty==true&&liveData?.value!=null){
 
         ///One
         if(resultData?[0].twod=="--"){
-          print('work here zzzzzzzzzzzz ${ updateTime.value}');
+          //print('work here zzzzzzzzzzzz ${ updateTime.value}');
           updateTime.value=liveData?.time.toString()??"--";
         }else{
           updateTime.value=resultData?[0].openTime.toString()??"--";

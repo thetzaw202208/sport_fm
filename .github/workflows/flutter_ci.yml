@@ -57,7 +57,7 @@ jobs:
         run: shorebird patch android --release-version $(shorebird releases list | grep -m 1 -oP '\d+\.\d+\.\d+\+\d+')
 
       - name: Upload APK artifact (for manual download if needed)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk

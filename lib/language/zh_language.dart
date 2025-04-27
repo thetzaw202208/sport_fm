@@ -66,6 +66,7 @@ class MMLanguage {
     'enter_amount':'ငွေပမာဏ ရိုက်ထည့်ပါ',
     'please_select_number':'ထိုးမည့်ဂဏန်း ရွေးချယ်ပါ',
     'bet_number':'ထိုးဂဏန်း',
-    'no_transaction':'မှတ်တမ်းမရှိပါ'
+    'no_transaction':'မှတ်တမ်းမရှိပါ',
+    'please_accept':'ကျေးဇူးပြု၍ စည်ကမ်းချက်များ လက်ခံပါသည်ကို နှိပ်ပေးပါ'
   };
 }

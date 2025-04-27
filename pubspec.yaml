@@ -79,6 +79,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/data/
+    - shorebird.yaml
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -108,5 +109,5 @@ flutter:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/logo.png"
+  image_path: "assets/images/logo4.png"
   min_sdk_android: 21

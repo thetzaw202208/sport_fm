@@ -25,10 +25,9 @@ class SettingScreen extends StatelessWidget {
           elevation: 0,
           backgroundColor: primaryColor,
           centerTitle: true,
-          title: CustomText(
-            text: 'app_name'.tr,
-            fontSize: 15.sp,
-            fontWeight: FontWeight.w500,
+          title: Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Image.asset(logoImg,fit: BoxFit.fitHeight,),
           ),
         ),
         body: Obx(()=>

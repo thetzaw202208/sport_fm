@@ -36,9 +36,7 @@ class LoginScreen extends StatelessWidget {
         padding: EdgeInsets.all(10.w),
         children: [
           kSizedBoxH25,
-          FlutterLogo(
-            size: 50.w,
-          ),
+          Image.asset(logoImg),
           kSizedBoxH25,
           Center(
               child: CustomText(
@@ -86,7 +84,7 @@ class LoginScreen extends StatelessWidget {
             () => loginController.isLoginLoading.value
                 ? Center(child: CustomLoading())
                 : IgnorePointer(
-                    ignoring: loginController.isChecked.value == false ||loginController.isPwdTextEmpty.value ||
+                    ignoring: loginController.isPwdTextEmpty.value ||
                         loginController.isTextEmpty.value,
                     child: Obx(()=>
                        CustomButton(
@@ -95,7 +93,7 @@ class LoginScreen extends StatelessWidget {
                               : secondaryColor,
                           text: 'sign_in'.tr,
                           onTap: () {
-                            if (loginController.phoneController.text.isNotEmpty
+                            if (loginController.isChecked.value == true
 
                                 &&loginController
                                     .phoneController.text.isNotEmpty&&
@@ -104,7 +102,10 @@ class LoginScreen extends StatelessWidget {
                               loginController.doLogin(
                                   loginController.phoneController.text,
                                   loginController.passwordController.text);
-                            }else{
+                            }else if(loginController.isChecked.value == false ){
+                              Get.snackbar('Warning', 'please_accept'.tr);
+                            }
+                            else{
                               Get.snackbar("Warning !", "You missed some field");
                             }
                           }),

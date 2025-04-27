@@ -170,11 +170,11 @@ class LiveAndResultScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          elevation: 1,
+
           backgroundColor: primaryColor,
-          title: CustomText(
-            text: 'app_name'.tr,
-            fontWeight: FontWeight.bold,
+          title: Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Image.asset(logoImg,fit: BoxFit.fitHeight,),
           ),
           // actions: [
           //   IconButton(onPressed: (){

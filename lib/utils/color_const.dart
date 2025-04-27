@@ -27,3 +27,5 @@ Color iconBlack = const Color(0xFF000000);
 Color iconGrey = const Color(0xFFB6B6B6);
 
 Color silver = const Color(0xFFC0C0C0);
+
+String logoImg='assets/images/logo1.png';

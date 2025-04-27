@@ -66,6 +66,7 @@ class EnLanguage {
     'enter_amount':'Enter Bet Amount',
     'please_select_number':'Please select number',
     'bet_number':'Bet Number',
-    'no_transaction':'There is no transaction history'
+    'no_transaction':'There is no transaction history',
+    'please_accept':'Please accept the Terms and Conditions'
   };
 }

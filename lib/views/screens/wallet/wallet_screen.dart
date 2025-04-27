@@ -18,7 +18,10 @@ class WalletScreen extends StatelessWidget {
    WalletController walletController = Get.put(WalletController());
     return Scaffold(
       appBar: AppBar(
-        title: CustomText(text: 'app_name'.tr),
+        title: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: Image.asset(logoImg,fit: BoxFit.fitHeight,),
+        )
       ),
       body: Padding(
         padding:  EdgeInsets.all(8.w),
